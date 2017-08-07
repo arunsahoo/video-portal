@@ -1,0 +1,9 @@
+<section ng-controller="videoController">
+	<h4>{{getVideo.name | removeArrayinTitle }}</h4>
+
+	<video src="{{getVideo.url}}" width="80%" height="auto" controls="">
+		<source src="{{getVideo.url}}" type="video/mp4">
+		</video>
+		<br>
+		<p>{{getVideo.description}}</p>
+</section>

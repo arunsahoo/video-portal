@@ -1,0 +1,16 @@
+<div class="col-sm-4"></div>
+  <div class="col-sm-4" ng-controller="loginController" >
+    <form name="loginForm" class="form-signin" ng-submit="login()" method="POST">
+      <h2 class="form-signin-heading text-center">Sign In</h2>
+      <div class="form-group">
+        <input type="text" placeholder="Username" required ng-model="username" name="username" class="form-control" >
+        <p class="error validationerror" ng-show="loginForm.username.$invalid && loginForm.username.$touched">Enter your registered username.</p>
+      </div>
+      <div class="form-group">
+        <input type="password" required placeholder="Password" ng-model="password" name="password" ng-minlength="8" ng-maxlength="20" ng-pattern="/^[A-z][A-z0-9]*$/" class="form-control"  >
+        <p class="error validationerror" ng-show="loginForm.password.$invalid && loginForm.password.$touched">Password must be 8 to 20 chars long. </p>
+      </div>
+      <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="loginForm.$invalid">Sign In</button>
+    </form>
+  </div>
+<div class="col-sm-4"></div>
