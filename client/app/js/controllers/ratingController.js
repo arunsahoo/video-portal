@@ -1,17 +1,17 @@
 // App rating Controller
-videoApp.controller('ratingController', function($scope, $cookieStore, $http) {
+videoApp.controller('ratingController', function($scope, $rootScope, $cookieStore, $http) {
     //$scope.rating = 5;
     $scope.rateFunction = function(id, rating) {
         $http({
             method : "POST",
-            url : "/video/ratings",
+            url : "/video/ratings?sessionId="+$cookieStore.get('sessionId'),
             data: { videoId: id, rating: rating }
         }).then(function mySucces(response) {
         	$scope.valid = true;
             $scope.result = response.data;
         }, function myError(response) {
             $scope.valid = false;
-            $scope.result = response.myError;
+            alert(response.data.error);
         });
     };
   });

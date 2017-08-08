@@ -8,7 +8,7 @@
 				</video> 
 			<div ng-controller="ratingController">
 				<div ng-init="0"></div>
-				<div class="star-rating" star-rating rating-value="calculateAverageRating(video.ratings)" data-max="5" on-rating-selected="rateFunction(video._id, rating)"></div>
+				<div class="star-rating" star-rating rating-value="rating || calculateAverageRating(video.ratings)" data-max="5" on-rating-selected="rateFunction(video._id, rating)"></div>
 			</div>
 				<br>
 				<div class="desc">

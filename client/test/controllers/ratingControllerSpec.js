@@ -17,7 +17,7 @@ describe('VideoApp: RatingTestSuite', function() {
 	    var $scope = {};
 		var controller = $controller('ratingController', { $scope: $scope });
 
-		$httpBackend.whenPOST("/video/ratings").respond(200, {});
+		$httpBackend.whenPOST("/video/ratings?sessionId="+$cookieStore.get('sessionId')).respond(200, {});
 	    $scope.rateFunction('597f075108ac282559d23b65', 4);
 	    
 	    $httpBackend.flush();
@@ -29,10 +29,10 @@ describe('VideoApp: RatingTestSuite', function() {
 	    var $scope = {};
 		var controller = $controller('ratingController', { $scope: $scope });
 
-		$httpBackend.whenPOST("/video/ratings").respond(404, {});
+		$httpBackend.whenPOST("/video/ratings?sessionId="+$cookieStore.get('sessionId')).respond(404, {});
 	    $scope.rateFunction('597f075108ac282559d23b65', 7);
 	    
 	    $httpBackend.flush();
-	    //expect($scope.result).toBeTruthy();
+	    expect($scope.valid).toBe(false);
   	});
 });
