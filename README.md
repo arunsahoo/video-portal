@@ -1,6 +1,6 @@
-#VideoPortal (SPA)
+# VideoPortal (SPA)
 
-##What is it?
+## What is it?
 
 This is a Single Page video portal app (SPA) developed using MEAN (MongoDB, Express, Angular, Node.js).
 Installation
