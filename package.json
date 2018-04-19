@@ -12,7 +12,6 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
-    "hoek": "^5.0.3",
     "mongoose": "^5.1.2",
     "morgan": "^1.7.0",
     "npm": "^6.1.0",
