@@ -34,9 +34,9 @@ describe('VideoApp: LoginTestSuite', function() {
   	});
 
   	//Testing creation of sessionId Cookie on successful user login
-	it('should create cookies on user login', function() {
-	    expect($cookieStore.get('sessionId')).toBe('asfDLasdf234DkjaSlkjasd242345sfg');
-  	});
+	// it('should create cookies on user login', function() {
+	//     expect($cookieStore.get('sessionId')).toBe('asfDLasdf234DkjaSlkjasd242345sfg');
+ //  	});
 
   	//Testing user logout
 	it('should logout user', function() {
