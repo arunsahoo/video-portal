@@ -36,15 +36,12 @@ jobs:
       # run tests!
       - run: yarn test
   workflows:
-    version: 2
-    build-test-and-deploy:
-      jobs:
-        - build
-        - test1:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - steps
+      - deploy:
             requires:
-              - build
-            context: org-global  
-        - deploy:
-            requires:
-              - test1
+              - steps
 
