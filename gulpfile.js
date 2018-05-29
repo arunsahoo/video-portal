@@ -43,10 +43,12 @@ var gulp = require('gulp'),
 
 	//This task monitors live change of js, css & html files of app directory.
 	gulp.task('watch', function(){
-		gulp.watch('client/app/**/*.js',['js', 'concat-js']);
-		gulp.watch('client/sass/**/*.scss', ['sass', 'minify-css']);
-		gulp.watch(['client/app/*.html',
-			'client/app/views/*.html'],['html']);
+		// gulp.watch('client/app/**/*.js',['js', 'concat-js']);
+		// gulp.watch('client/sass/**/*.scss', ['sass', 'minify-css']);
+		// gulp.watch(['client/app/*.html',
+		// 	'client/app/views/*.html'],['html']);
+		gulp.watch('client/app/**/*.js', gulp.parallel('js', 'concat-js'));
+		gulp.watch('client/sass/**/*.scss', gulp.parallel('sass', 'minify-css'));
 	});
 
 	//This task handles live reloading and automatically opens a browser window on changing source files of app.
@@ -59,4 +61,8 @@ var gulp = require('gulp'),
 	});
 
 	//This task executes all default task on gulp run.
-	gulp.task('default', ['watch', 'html', 'js', 'css', 'webserver']);
+	//gulp.task('default', ['watch', 'html', 'js', 'css', 'webserver']);
+	gulp.task('default', gulp.series('watch', 'html', 'js', 'css', 'webserver', function(done) {
+	  // do more stuff
+	  done();
+	}));
